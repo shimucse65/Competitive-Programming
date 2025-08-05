@@ -1,0 +1,1 @@
+{"name":"Local: BIT","url":"c:\\Users\\DFIT\\OneDrive\\Desktop\\Code\\Topic\\BIT.cpp","tests":[{"id":1752047811923,"input":"5\n1 4 3 2 9\n6\n3 2 4 \n1 3 2\n3 1 5\n2 2 2\n2 4 9\n3 2 3","output":"9 \n18\n8"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"c:\\Users\\DFIT\\OneDrive\\Desktop\\Code\\Topic\\BIT.cpp","group":"local","local":true}

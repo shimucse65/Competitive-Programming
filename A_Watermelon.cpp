@@ -17,7 +17,6 @@ mt19937 rng(chrono::steady_clock::now().time_since_epoch().count());
 void solve(){
     int n; cin>>n;
     cout<<(n > 2 && n % 2 == 0 ? "YES" : "NO")<<"\n";
- 
 }
 
 signed main() {
