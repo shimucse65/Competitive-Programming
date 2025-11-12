@@ -15,7 +15,28 @@ const int inf = 1e18 + 10;
 mt19937 rng(chrono::steady_clock::now().time_since_epoch().count());
 
 void solve() {
-    
+    int n; cin >> n;
+    int a[n];
+    int one =0 , two =0;
+    int sm =0;
+    for(int i=0; i <n ;i++) {
+        cin >> a[i];
+        if (a[i] == 1) one ++;
+        else two++;
+        sm += a[i];
+    }
+    if (one == 0) {
+        if (two % 2 == 0) cout << "YES\n";
+        else cout << "NO\n";
+        return;
+    }
+    if (two == 0) {
+        if (one % 2 == 0) cout << "YES\n";
+        else cout << "NO\n";
+        return;
+    }
+    if(sm % 2 == 0) cout << "YES\n";
+    else cout << "NO\n";
 }
 
 signed main() {

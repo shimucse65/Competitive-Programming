@@ -15,7 +15,26 @@ const int inf = 1e18 + 10;
 mt19937 rng(chrono::steady_clock::now().time_since_epoch().count());
 
 void solve() {
-    
+    int n; cin >> n ;
+    int a[n];
+    int mx = -inf, mxid = -1;
+    int mn = inf , mnid = -1 ;
+
+    for(int i=0; i < n ;i++) {
+        cin >> a[i];
+        if (a[i] > mx) {
+            mx = a[i] ; mxid = i;
+        }
+        if (a[i] < mn) {
+            mn = a[i] ; mnid = i;
+        }
+    }
+    if (mx - mn >= n) {
+        cout << "YES\n"; 
+        cout << min (mnid, mxid) + 1 << " " << max(mnid, mxid) + 1 << "\n";
+        return;
+    }
+    cout << "NO\n";    
 }
 
 signed main() {

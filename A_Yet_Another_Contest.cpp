@@ -15,6 +15,19 @@ const int inf = 1e18 + 10;
 mt19937 rng(chrono::steady_clock::now().time_since_epoch().count());
 
 void solve() {
+    int n, k; cin >> n >>  k;
+    int a[n];
+    for (int i =0 ; i <n ;i++) cin >> a[i] ;
+    int ache =0 , ans =0;
+
+    for (int i=0; i <n ;i++) {
+        if (a[i] == 0) {
+            if (ache > 0) ans ++, ache--;
+        } else {
+            if (a[i] >= k) ache += a[i];
+        }
+    }
+    cout << ans << "\n";
     
 }
 

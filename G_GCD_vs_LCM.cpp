@@ -14,13 +14,42 @@ const int N = 2e5 + 10;
 const int inf = 1e18 + 10;
 mt19937 rng(chrono::steady_clock::now().time_since_epoch().count());
 
+int vis[N];
+vector<int> prime;
+
+void siv() {
+    for(int i = 2; i < N; i++) {
+        if (!vis[i]) {
+            vis[i] = 1;
+            prime.push_back(i);
+            for (int j = i * i; j < N; j += i) vis[j] = 1; 
+        }
+    }
+}
+
 void solve() {
-    
+    int n, l; cin >> n >> l;
+
+    vector<int> ans;
+    int mm = 1;
+
+    for (int i = 0 ; i < n ;i++) {
+        if ((__int128) mm * prime[i] > l) {
+            cout << -1 << "\n"; return;
+        }
+        mm *= prime[i];
+    }
+
+    for(int i = 0; i < n ;i++) {
+        ans.push_back (mm / prime[i]);
+    }
+    for (auto it : ans) cout << it << " "; cout << "\n";
 }
 
 signed main() {
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
+    siv();
 
     int t = 1, c = 1; cin>>t;
     while(t--) {

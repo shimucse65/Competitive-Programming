@@ -15,6 +15,21 @@ const int inf = 1e18 + 10;
 mt19937 rng(chrono::steady_clock::now().time_since_epoch().count());
 
 void solve() {
+    int n ; cin >> n ;
+    int a[n];
+    for (int i=0;i <n ;i++) cin >> a[i];
+    int cnt =0 , f1=0, f2=0;
+    for(int i=1 ; i < n ;i++) {
+        if (f1 == 0 &&  a[i] < a[i - 1]) {
+            cnt ++ ; f1=1; f2=0;
+        }
+        else if (f2 == 0 && a[i] > a[i - 1]) {
+            cnt ++ ; f2=1;
+            f1 = 0;
+        }
+    }
+    if (cnt == 2) cout << "YES\n";
+    else cout << "NO\n";
     
 }
 
@@ -22,7 +37,7 @@ signed main() {
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
 
-    int t = 1, c = 1; cin>>t;
+    int t = 1, c = 1; //cin>>t;
     while(t--) {
         // cerr<<"Case "<<c++<<": \n";
         solve();

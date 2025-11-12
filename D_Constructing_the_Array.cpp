@@ -16,29 +16,30 @@ mt19937 rng(chrono::steady_clock::now().time_since_epoch().count());
 
 struct cmp {
     bool operator () (const pii a ,const pii b) const {
-        int lna= a.ss- a.ff + 1 , lnb= b.ss- b.ff+1;
-        if (lna==lnb) return a.ff < b.ff;
+        int lna = a.ss - a.ff + 1 , lnb = b.ss - b.ff + 1;
+        if (lna == lnb) return a.ff < b.ff;
         return lna > lnb;
     }
 };
+
 void solve() {
-    int n;cin>>n;
-    set < pii ,cmp >st;
+    int n; cin >> n;
+    set<pii, cmp> st;
     st.insert ({1,n});
     int ans[n+1];
     int tmp=1;
-    while (st.size () >0) {
-        auto cur= *st.begin(); st.erase (cur);
-        int l= cur.ff , r= cur.ss;
-        int mid= (l+r)/2;
+    while (st.size() > 0) {
+        auto cur = *st.begin(); st.erase(cur);
+        int l = cur.ff, r = cur.ss;
+        int mid = (l + r) / 2;
         ans[mid] = tmp++;
 
-        if (l < mid) st.insert ({l ,mid-1});
-        if (mid <r) st.insert ({mid+1 ,r});       
-    } 
+        if (l < mid) st.insert ({l, mid-1});
+        if (mid <r) st.insert ({mid+1, r});    
+    }
 
-    for (int i=1 ;i<=n ;i++) cout <<ans[i] <<" "; 
-    cout <<"\n";   
+    for(int i = 1; i <= n; i++) cout << ans[i] << " ";
+    cout << "\n";
 }
 
 signed main() {

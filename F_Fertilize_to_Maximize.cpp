@@ -15,7 +15,18 @@ const int inf = 1e18 + 10;
 mt19937 rng(chrono::steady_clock::now().time_since_epoch().count());
 
 void solve() {
-    
+    int n, k; cin >> n >> k;
+    int a[n], b[n];
+    for (int i=0 ; i <n ;i++) cin >> a[i];
+    for (int i=0 ; i < n ;i++) cin >> b[i];
+
+    double ans = 0;
+
+    for (int i = 0; i < n ;i++) {
+        ans += (1 /( (b[i] - a[i] + 1) * 1.0));
+    }
+    //cerr << ans << "\n";
+    cout << setprecision (10) << fixed << " " << ans / n << "\n";
 }
 
 signed main() {

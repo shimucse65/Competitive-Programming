@@ -15,14 +15,32 @@ const int inf = 1e18 + 10;
 mt19937 rng(chrono::steady_clock::now().time_since_epoch().count());
 
 void solve() {
-    
+    int n, k; cin >> n >> k;
+    int a[n];
+    for (int i= 0; i < n ;i++) {
+        cin >> a[i];
+    }
+    int sf[n];
+    if (a[n - 1] % k == 0) sf[n - 1] = 1; 
+    else sf[n - 1] = 0;
+    for (int i = n - 2 ; i >= 0 ; i--) {
+        if (a[i] % k != 0) sf[i] = sf[i + 1];
+        else sf[i] = sf[i + 1] + 1;
+    }
+    int cnt = 0;
+    for (int i = 0; i < n - 1; i++) {
+        if (a[i] % k != 0) continue;
+        cnt += min (n - i - 1 , sf[i + 1]);
+    }
+    cout << cnt << "\n";
+   
 }
 
 signed main() {
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
 
-    int t = 1, c = 1; cin>>t;
+    int t = 1, c = 1; //cin>>t;
     while(t--) {
         // cerr<<"Case "<<c++<<": \n";
         solve();

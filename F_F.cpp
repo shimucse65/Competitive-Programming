@@ -9,33 +9,50 @@ template <typename T> using o_set = tree<T, null_type, std::less<T>, rb_tree_tag
 #define ss second
 #define pii pair<int, int>
 using namespace std;
-const int mod = 1000000007;
+const int mod = 1e9 + 7;
 const int N = 2e5 + 10;
 const int inf = 1e18 + 10;
 mt19937 rng(chrono::steady_clock::now().time_since_epoch().count());
 
 void solve() {
-    int n ; cin>>n ;
-    int a[n];
-    for (int i=0;i<n ;i++) cin>>a[i];
-    int sf[n];
-    sf[n-1]= a[n-1];
-
-    for (int i= n-2 ; i>=0 ;i--) 
-     {
-        sf[i]= sf[i+1]+ a[i];
-        sf[i] %= mod;
-     }
-
-    int sm=0;
-
-    for (int i=0;i<n-1 ;i++) {
-        int tmp= sf[i+1];
-        sm += (a[i]*1ll*tmp)%mod;
-        sm %= mod;
+    int n; cin >> n;
+    vector<int> a(n);
+    int ans = 0;
+    for(int i = 0; i < n; i++) {
+        cin >> a[i];
+        ans += a[i];
     }
-    cout << sm % mod <<"\n";
+
+    vector<int> cnt(30);
+
+    for (int x : a) {
+        for(int i = 0; i < 30; i++) if(x >> i & 1) {
+            cnt[i]++;
+        }
+    }
     
+    int mx = -inf, mxVal = -1;
+
+    for(int x : a) {
+        int cur = 0;
+        for(int i = 0; i < 30; i++) {
+            if(x >> i & 1) {
+                cur -= (1LL << i) * cnt[i];
+                cur += (1LL << i) * (n - cnt[i]);
+            } else {
+                cur += (1LL << i) * cnt[i];
+                cur -= (1LL << i) * (n - cnt[i]);
+            }
+        }
+        if(cur > mx) mx = cur, mxVal = x;
+    }
+
+    int sum = 0;
+    for (int i = 0; i < n; i++) {
+        sum += (a[i] ^ mxVal);
+    }
+
+    cout << max(sum, ans) << "\n";
 }
 
 signed main() {

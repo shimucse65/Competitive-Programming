@@ -15,6 +15,20 @@ const int inf = 1e18 + 10;
 mt19937 rng(chrono::steady_clock::now().time_since_epoch().count());
 
 void solve() {
+    int n; cin >> n;
+    if (n == 2) {
+        cout << -1 << " " << 2 << "\n"; return;
+    }
+    if(n == 4) {
+        cout << -1 << " " <<3 <<" " << -1 << " " << 2 << "\n";
+        return;
+    }
+    int cur = -1;
+    for(int i= 1; i <= n ; i++) {
+        if (i & 1) cout << -1 <<" ";
+        else cout << 3 << " ";
+    }
+    cout << "\n";
     
 }
 

@@ -15,7 +15,19 @@ const int inf = 1e18 + 10;
 mt19937 rng(chrono::steady_clock::now().time_since_epoch().count());
 
 void solve() {
-    
+    int a,b; cin >> a >> b;
+    if(a < b) {
+        cout << -1 << "\n"; return;
+    }
+    vector<int> v;
+    for(int i = 0; i <= 30; i++) {
+        int x = a & (1 << i);
+        int y = b & (1 << i);
+        if (x == y) continue;
+        v.push_back((1 << i));
+    }
+    cout << v.size() << "\n";
+    for(auto it : v) cout << it << " "; cout << "\n";   
 }
 
 signed main() {

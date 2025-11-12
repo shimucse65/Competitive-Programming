@@ -15,6 +15,28 @@ const int inf = 1e18 + 10;
 mt19937 rng(chrono::steady_clock::now().time_since_epoch().count());
 
 void solve() {
+    int n; cin >> n;
+    int a[n];
+    for(int i=0; i < n;i++) cin >> a[i];
+    int f=0;
+    int ev=0;
+    vector<int >odd;
+    for(int i=0;i <n ;i++) {
+        if (a[i] & 1) f=1;
+        if(a[i] % 2 ==0) ev += a[i];
+        else odd.push_back(a[i]);
+    } 
+    int sm =0;
+    sort(odd.begin(), odd.end(), greater<int>());
+
+    int cur =0;
+    for(int i = 1; i <= (odd.size() + 1)/2 ; i++) sm += odd[cur++];
+
+    if(f==0) {
+        cout << 0 << "\n"; return;
+    }
+
+    cout << sm + ev << "\n";
     
 }
 

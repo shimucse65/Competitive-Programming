@@ -15,14 +15,15 @@ const int inf = 1e18 + 10;
 mt19937 rng(chrono::steady_clock::now().time_since_epoch().count());
 
 void solve() {
-    
+    cout <<"We want national level IUPC in CoU";
+
 }
 
 signed main() {
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
 
-    int t = 1, c = 1; cin>>t;
+    int t = 1, c = 1; //cin>>t;
     while(t--) {
         // cerr<<"Case "<<c++<<": \n";
         solve();

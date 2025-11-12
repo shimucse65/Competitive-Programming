@@ -15,7 +15,25 @@ const int inf = 1e18 + 10;
 mt19937 rng(chrono::steady_clock::now().time_since_epoch().count());
 
 void solve() {
-    
+    int n; cin >> n;
+    int a[n];
+    for(int i=0; i <n ;i++) cin >> a[i];
+    map<int, int>mp;
+    int cur = a[0];
+    int mn = inf;
+
+    for(int i = 0; i < n; i++){
+        if(a[i]== cur) mp[cur]++;
+        else{
+            int cc = a[i - 1] * (n - mp[a[i -1]]);
+            mn = min(mn, cc);
+            mp[a[i -1]] = 0;
+            cur = a[i]; mp[cur]++;
+        }
+    }
+    int cc = a[n - 1] * (n - mp[a[n-1]]);
+    mn = min(mn, cc);
+    cout << mn << "\n";    
 }
 
 signed main() {

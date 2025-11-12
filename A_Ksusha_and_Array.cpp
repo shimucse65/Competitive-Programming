@@ -15,14 +15,26 @@ const int inf = 1e18 + 10;
 mt19937 rng(chrono::steady_clock::now().time_since_epoch().count());
 
 void solve() {
-    
+    int n; cin >>n;
+    int a[n];
+    int mn = inf;
+    for(int i = 0; i < n; i++) {
+        cin >> a[i]; 
+        mn = min(mn, a[i]);
+    }
+    for(int i=0; i <n ;i++) {
+        if (a[i] % mn != 0) {
+            cout << -1 << "\n"; return;
+        }
+    }
+    cout << mn << "\n";
 }
 
 signed main() {
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
 
-    int t = 1, c = 1; cin>>t;
+    int t = 1, c = 1; //cin>>t;
     while(t--) {
         // cerr<<"Case "<<c++<<": \n";
         solve();
