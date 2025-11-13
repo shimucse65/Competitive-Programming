@@ -1,0 +1,1 @@
+{"name":"Local: Point_Location _Test","url":"f:\\Geometry\\Point_Location _Test.cpp","tests":[{"id":1748819102253,"input":"3\n1 1 5 3 2 3\n1 1 5 3 4 1\n1 1 5 3 3 2","output":"LEFT\nRIGHT\nTOUCH\n"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"f:\\Geometry\\Point_Location _Test.cpp","group":"local","local":true}

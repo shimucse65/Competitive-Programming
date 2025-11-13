@@ -1,0 +1,1 @@
+{"name":"Local: f_distance_from_polygon","url":"f:\\Geometry\\Others\\f_distance_from_polygon.cpp","tests":[{"id":1750617944142,"input":"1 1 1 1 -1","output":"0.70711"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"f:\\Geometry\\Others\\f_distance_from_polygon.cpp","group":"local","local":true}
